@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --dist-dir ./dist"
+    "build": "parcel build index.html --out-dir ./dist"
   },
   "author": "Chad Foster",
   "license": "ISC",
