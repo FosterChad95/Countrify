@@ -1,0 +1,113 @@
+.search {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  position: relative;
+  color: var(--font-color);
+  transition: all 0.3s;
+
+  &:focus-within {
+    transform: translateY(-0.5rem);
+    box-shadow: $shadow-dark;
+  }
+  &__icon {
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+  }
+
+  &__input {
+    width: 40rem;
+    height: 4.5rem;
+    padding-left: 5rem;
+    border: none;
+    outline: none;
+    background-color: var(--color-secondary);
+    box-shadow: $shadow;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: inherit;
+
+    &::placeholder {
+      color: var(--font-color);
+      opacity: 0.8;
+    }
+  }
+}
+.filter {
+  display: inline-block;
+  align-self: center;
+  transition: all 0.3s;
+
+  &__dropdown {
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    border-radius: 5px;
+    color: var(--font-color);
+    outline: none;
+    height: 5rem;
+    width: 20rem;
+    box-shadow: $shadow;
+    padding: 0 2rem;
+    overflow: hidden;
+    appearance: none;
+    cursor: pointer;
+
+    & > * {
+      background-color: var(--color-secondary);
+    }
+  }
+}
+
+.card {
+  background-color: var(--color-primary);
+  height: 33rem;
+  width: 22rem;
+  border-radius: 5px;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  overflow: hidden;
+  box-shadow: $shadow;
+  font-weight: 600;
+
+  &__text {
+    padding: 2rem;
+
+    & span {
+      font-weight: 300;
+    }
+  }
+
+  &__name {
+    font-size: 1.8rem;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    justify-self: center;
+  }
+
+  &__population,
+  &__region,
+  &__capital {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  &__population {
+    margin-top: 1.5rem;
+  }
+}
+
+#strong {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}

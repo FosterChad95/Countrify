@@ -1,0 +1,51 @@
+//Colors
+$dark-mode-el: hsl(209, 23%, 22%);
+$dark-mode-background: hsl(207, 26%, 17%);
+$lightmodetext: hsl(200, 15%, 8%);
+$light-mode-input: hsl(0, 0%, 52%);
+$light-mode-background: hsl(0, 0%, 98%);
+
+//Theme Switching
+.theme-light {
+  --color-primary: hsl(0, 0%, 98%);
+  --color-secondary: hsl(0, 0%, 95%);
+  --font-color: hsl(200, 15%, 8%);
+}
+.theme-dark {
+  --color-primary: hsl(207, 26%, 17%);
+  --color-secondary: hsl(209, 23%, 22%);
+  --font-color: #ffffff;
+}
+
+//Fonts
+$nunito: "Nunito Sans", sans-serif;
+
+//shadow
+$shadow: 0 1rem 1rem rgba(0, 0, 0, 0.25);
+$shadow-dark: 0 1rem 1.5rem rgba(0, 0, 0, 0.35);
+
+//Page Reset
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--color-secondary);
+  font-family: $nunito;
+  font-size: 1.4rem;
+  color: var(--font-color);
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}

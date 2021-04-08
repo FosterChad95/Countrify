@@ -1,0 +1,25 @@
+{
+  "name": "restcountriesapi",
+  "version": "1.0.0",
+  "description": "Web app that has information on countries. Can be filtered and each country can be clicked on for more detail.",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FosterChad95/repository.git"
+  },
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "author": "Chad Foster",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-beta.2",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-svg-sprite": "^1.4.1"
+  },
+  "dependencies": {
+    "core-js": "^3.10.1",
+    "regenerator-runtime": "^0.13.7"
+  }
+}
