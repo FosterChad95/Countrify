@@ -4,6 +4,8 @@ class ThemeSwitch extends View {
   //Element Selection
   btn = document.querySelector(".header__button");
   icon = document.querySelector(".header__icon");
+  btnText = document.querySelector(".button__text");
+
   constructor() {
     super();
     this.themeStart();
@@ -19,9 +21,11 @@ class ThemeSwitch extends View {
     if (themeName === "theme-light") {
       this.icon.classList.remove("fas");
       this.icon.classList.add("far");
+      this.btnText.textContent = "Light Mode";
     } else {
       this.icon.classList.remove("far");
       this.icon.classList.add("fas");
+      this.btnText.textContent = "Dark Mode";
     }
   }
 

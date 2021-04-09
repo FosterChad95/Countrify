@@ -6,6 +6,7 @@ export const state = {
     results: [],
     page: 1,
   },
+  regions: {},
 };
 
 export const loadCountry = async function () {
@@ -32,6 +33,19 @@ export const loadSearchResults = async function (query) {
     state.search.results = data;
     if (!country.ok) throw new Error("Please search for a valid country name!");
     return state.search.results;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const loadRegion = async function (region) {
+  try {
+    const data = await fetch(
+      `https://restcountries.eu/rest/v2/region/${region}`
+    );
+    const res = await data.json();
+    if (!data) throw new Error(`${region} does not exist please try again!`);
+    state.regions = res;
   } catch (err) {
     throw err;
   }
