@@ -1,10 +1,12 @@
 import { async } from "regenerator-runtime";
+import resultsView from "./views/resultsView";
 export const state = {
   countries: {},
   search: {
     query: "",
     results: [],
     page: 1,
+    resultsPerPage: 12,
   },
   regions: {},
 };
@@ -18,6 +20,7 @@ export const loadCountry = async function () {
     const res = await data.json();
     console.log(res);
     state.countries = res;
+    state.search.results = res;
   } catch (err) {
     throw err;
   }
@@ -49,4 +52,13 @@ export const loadRegion = async function (region) {
   } catch (err) {
     throw err;
   }
+};
+
+export const pagination = function (page = state.search.page) {
+  state.search.page = page;
+
+  const start = (page - 1) * state.search.resultsPerPage;
+  const end = page * state.search.resultsPerPage;
+
+  return state.countries.slice(start, end);
 };

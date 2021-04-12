@@ -2,6 +2,7 @@ import View from "./View.js";
 
 class FilterView extends View {
   _parentElement = document.querySelector(".filter");
+
   addHandlerFilter(handler) {
     this._parentElement.addEventListener("change", handler);
   }

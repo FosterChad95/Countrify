@@ -9,12 +9,12 @@ class DetailView extends View {
     [this._search, this._filter].forEach((e) => (e.innerHTML = ""));
   }
 
-  goBack() {
-    const backBtn = document.querySelector(".detail__button");
-    backBtn.addEventListener("click", () => {
-      window.history.back();
-      window.location.search = "";
-    });
+  goBack(url) {
+    window.onpopstate = function (event) {
+      window.location.href = url;
+    };
+    const btn = document.querySelector(".detail__button");
+    btn.addEventListener("click", () => history.back());
   }
 
   _renderDetail(data) {

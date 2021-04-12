@@ -32,6 +32,7 @@ class ResultsView extends View {
     </div>
     </button>
   </div>
+  
     `;
   }
 }

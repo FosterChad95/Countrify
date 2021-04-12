@@ -5,6 +5,7 @@ import filterView from "./views/filterView.js";
 import * as model from "./model.js";
 import { async } from "regenerator-runtime";
 import detailView from "./views/detailView.js";
+import paginationView from "./views/paginationView.js";
 
 const controlTheme = function () {
   themeSwitch.toggleTheme();
@@ -16,6 +17,7 @@ const controlSearch = async function () {
 
     const data = await model.loadSearchResults(query);
     resultsView.render(data);
+    searchView.clearButtons();
   } catch (err) {
     searchView.renderError(err);
   }
@@ -25,7 +27,8 @@ const controlCardsInit = async function () {
   try {
     await model.loadCountry();
     const allData = model.state.countries;
-    resultsView.render(allData);
+    resultsView.render(model.pagination());
+    paginationView._renderButton(model.state.search);
   } catch (err) {
     throw err;
   }
@@ -36,6 +39,7 @@ const controlFilter = async function (ev) {
     await model.loadRegion(ev.target.value);
     const regions = model.state.countries;
     filterView.render(regions);
+    filterView.clearButtons();
   } catch (err) {
     filterView.renderError(err);
   }
@@ -51,7 +55,15 @@ const controlCardDetail = function (btn) {
     null,
     window.location.pathname + "?" + data.numericCode
   );
-  detailView.goBack();
+  const origUrl = window.location.pathname;
+  detailView.goBack(origUrl);
+};
+
+const controlPagination = function (btn) {
+  const data = model.pagination(btn.target.dataset.num);
+  paginationView._renderButton(model.state.search);
+  model.state.search.page = +btn.target.dataset.num;
+  resultsView.render(data);
 };
 
 const init = function () {
@@ -60,5 +72,6 @@ const init = function () {
   resultsView.addHandlerCards(controlCardsInit);
   filterView.addHandlerFilter(controlFilter);
   detailView.addDetailHandler(controlCardDetail);
+  paginationView.addHandlerClick(controlPagination);
 };
 init();

@@ -11,6 +11,7 @@ class SearchView extends View {
 
   clearSearch() {
     this._parentElement.querySelector(".search__input").value = "";
+    this._btn.innerHTML = "";
   }
 
   addHandlerSearch(handler) {

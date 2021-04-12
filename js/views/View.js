@@ -1,7 +1,11 @@
 export default class View {
   _data;
   _cardContainer = document.querySelector(".card__container");
+  _btn = document.querySelectorAll(".card__buttons");
 
+  clearButtons() {
+    this._btn.forEach((e) => (e.innerHTML = ""));
+  }
   render(data) {
     if (!data) this.renderError;
     this._data = data;
