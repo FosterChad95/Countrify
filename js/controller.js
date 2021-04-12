@@ -29,7 +29,6 @@ const controlCardsInit = async function () {
   } catch (err) {
     throw err;
   }
-  history.replaceState(allData, null, "https://countrify-cf.netlify.app/main");
 };
 
 const controlFilter = async function (ev) {
@@ -44,8 +43,15 @@ const controlFilter = async function (ev) {
 
 const controlCardDetail = function (btn) {
   const data = model.state.countries.find((e) => e.name === btn.dataset.name);
+  detailView._hideMain();
   detailView._renderDetail(data);
   detailView._bordersDetail(data);
+  history.pushState(
+    null,
+    null,
+    window.location.pathname + "?" + data.numericCode
+  );
+  detailView.goBack();
 };
 
 const init = function () {

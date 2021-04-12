@@ -9,6 +9,14 @@ class DetailView extends View {
     [this._search, this._filter].forEach((e) => (e.innerHTML = ""));
   }
 
+  goBack() {
+    const backBtn = document.querySelector(".detail__button");
+    backBtn.addEventListener("click", () => {
+      window.history.back();
+      window.location.search = "";
+    });
+  }
+
   _renderDetail(data) {
     if (!data) this.renderError;
     const markup = this._generateCards(data);
