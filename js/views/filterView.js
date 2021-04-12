@@ -9,7 +9,7 @@ class FilterView extends View {
   _generateCards(data) {
     return `
     <div class="card">
-      <button class="card__detail">
+      <button class="card__detail" data-name= "${data.name}">
       <img
         src="${data.flag}"
         alt="${data.name}"

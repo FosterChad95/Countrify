@@ -16,7 +16,7 @@ export const loadCountry = async function () {
     if (!data.ok) throw new Error("Something went wrong please try again!");
 
     const res = await data.json();
-
+    console.log(res);
     state.countries = res;
   } catch (err) {
     throw err;
@@ -45,7 +45,7 @@ export const loadRegion = async function (region) {
     );
     const res = await data.json();
     if (!data) throw new Error(`${region} does not exist please try again!`);
-    state.regions = res;
+    state.countries = res;
   } catch (err) {
     throw err;
   }
