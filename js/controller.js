@@ -46,6 +46,7 @@ const controlFilter = async function (ev) {
 };
 
 const controlCardDetail = function (btn) {
+  detailView.clearButtons();
   const data = model.state.countries.find((e) => e.name === btn.dataset.name);
   detailView._hideMain();
   detailView._renderDetail(data);
