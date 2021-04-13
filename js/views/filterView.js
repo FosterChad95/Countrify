@@ -2,7 +2,7 @@ import View from "./View.js";
 
 class FilterView extends View {
   _parentElement = document.querySelector(".filter");
-
+  _errorMessage = "Something went wrong, please reload the page and try again!";
   addHandlerFilter(handler) {
     this._parentElement.addEventListener("change", handler);
   }

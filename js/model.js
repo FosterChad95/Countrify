@@ -31,10 +31,10 @@ export const loadSearchResults = async function (query) {
     const country = await fetch(
       `https://restcountries.eu/rest/v2/name/${query}`
     );
-    const data = await country.json();
 
-    state.search.results = data;
     if (!country.ok) throw new Error("Please search for a valid country name!");
+    const data = await country.json();
+    state.search.results = data;
     return state.search.results;
   } catch (err) {
     throw err;

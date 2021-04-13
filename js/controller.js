@@ -6,6 +6,7 @@ import * as model from "./model.js";
 import { async } from "regenerator-runtime";
 import detailView from "./views/detailView.js";
 import paginationView from "./views/paginationView.js";
+import View from "./views/View.js";
 
 const controlTheme = function () {
   themeSwitch.toggleTheme();
@@ -14,12 +15,12 @@ const controlTheme = function () {
 const controlSearch = async function () {
   try {
     const query = searchView.getSearch();
-
     const data = await model.loadSearchResults(query);
+    if (!data) throw Error;
     resultsView.render(data);
     searchView.clearButtons();
   } catch (err) {
-    searchView.renderError(err);
+    searchView.renderError(err.message);
   }
 };
 
@@ -30,7 +31,7 @@ const controlCardsInit = async function () {
     resultsView.render(model.pagination());
     paginationView._renderButton(model.state.search);
   } catch (err) {
-    throw err;
+    View.renderError(err.message);
   }
 };
 
@@ -41,7 +42,7 @@ const controlFilter = async function (ev) {
     filterView.render(regions);
     filterView.clearButtons();
   } catch (err) {
-    filterView.renderError(err);
+    filterView.renderError(err.message);
   }
 };
 

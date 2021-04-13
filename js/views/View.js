@@ -16,5 +16,13 @@ export default class View {
 
   renderError(message = this._errorMessage) {
     console.log(message);
+    this._cardContainer.innerHTML = "";
+    this._cardContainer.insertAdjacentHTML(
+      "beforeend",
+      `<div class="error">
+          <h2 class="error__message">${message}</h2>
+        </div>`
+    );
+    this.clearButtons();
   }
 }

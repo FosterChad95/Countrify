@@ -6,6 +6,9 @@
   color: var(--font-color);
   transition: all 0.3s;
 
+  @include respond(phone) {
+    width: 100vw;
+  }
   &:focus-within {
     transform: translateY(-0.5rem);
     box-shadow: $shadow-dark;
@@ -31,6 +34,10 @@
     font-size: 1.5rem;
     color: inherit;
 
+    @include respond(phone) {
+      width: 100vw;
+    }
+
     &::placeholder {
       color: var(--font-color);
       opacity: 0.8;
@@ -41,6 +48,9 @@
   display: inline-block;
   align-self: center;
   transition: all 0.3s;
+  @include respond(phone) {
+    width: 100vw;
+  }
 
   &__dropdown {
     background-color: var(--color-secondary);
@@ -56,6 +66,10 @@
     appearance: none;
     cursor: pointer;
 
+    @include respond(phone) {
+      width: 100vw;
+    }
+
     & > * {
       background-color: var(--color-secondary);
     }
@@ -70,7 +84,7 @@
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: left;
   overflow: hidden;
   box-shadow: $shadow;
   font-weight: 600;
@@ -98,7 +112,7 @@
   }
 
   &__name {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   &__image {
@@ -112,7 +126,7 @@
   &__population,
   &__region,
   &__capital {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 300;
     margin-bottom: 1.5rem;
   }
@@ -246,5 +260,20 @@
         margin-right: 0.5rem;
       }
     }
+  }
+}
+
+.error {
+  width: 30vw;
+  height: 20vh;
+  background-color: var(--color-primary);
+  margin: 0 auto;
+  grid-column: 1/-1;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  &__message {
+    margin: auto 0;
   }
 }

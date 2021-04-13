@@ -8,6 +8,10 @@
   position: relative;
   color: var(--font-color);
 
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+
   &__icon {
     position: absolute;
     margin-left: auto;
@@ -26,6 +30,10 @@
     font-size: 1.5rem;
     color: var(--font-color);
     transition: transform 0.3s;
+
+    @include respond(tab-port) {
+      margin-top: 2rem;
+    }
 
     &:hover {
       transform: scale(1.2);
