@@ -139,6 +139,10 @@
     grid-column: 1/-1;
     justify-self: center;
     transition: transform 0.2s;
+
+    @include respond(phone) {
+      display: flex;
+    }
   }
   &__previous,
   &__next {
@@ -150,6 +154,11 @@
     margin: 5rem 2rem;
     padding: 0.5rem 5rem;
     cursor: pointer;
+
+    @include respond(phone) {
+      margin: 2rem 1rem;
+      padding: 0.5rem 2rem;
+    }
 
     &:hover {
       transform: translateY(-0.2rem);
