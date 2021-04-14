@@ -24,6 +24,32 @@ const controlSearch = async function () {
   }
 };
 
+const controlDropdown = function (e) {
+  const results = searchView.filterDropdown(
+    e.target.value,
+    model.state.countries
+  );
+  searchView.addDropdownMarkup(results, e.target.value);
+};
+
+const controlList = function (el) {
+  if (!el) return;
+  const dataid = el.dataset.id;
+  const data = model.state.countries.find((el) => el.name === dataid);
+
+  detailView._renderDetail(data);
+  detailView._bordersDetail(data);
+  detailView._hideMain();
+  detailView.clearButtons();
+  history.pushState(
+    null,
+    null,
+    window.location.pathname + "?" + data.numericCode
+  );
+  const origUrl = window.location.pathname;
+  detailView.goBack(origUrl);
+};
+
 const controlCardsInit = async function () {
   try {
     await model.loadCountry();
@@ -75,5 +101,7 @@ const init = function () {
   filterView.addHandlerFilter(controlFilter);
   detailView.addDetailHandler(controlCardDetail);
   paginationView.addHandlerClick(controlPagination);
+  searchView.addHandlerDropdown(controlDropdown);
+  searchView.addHandlerList(controlList);
 };
 init();

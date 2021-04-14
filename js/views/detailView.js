@@ -20,6 +20,7 @@ class DetailView extends View {
   _renderDetail(data) {
     if (!data) this.renderError;
     const markup = this._generateCards(data);
+    console.log(markup);
     this._element.innerHTML = "";
     this._element.insertAdjacentHTML("afterbegin", markup);
   }

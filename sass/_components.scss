@@ -5,14 +5,15 @@
   position: relative;
   color: var(--font-color);
   transition: all 0.3s;
+  position: relative;
 
   @include respond(phone) {
     width: 100vw;
   }
-  &:focus-within {
-    transform: translateY(-0.5rem);
-    box-shadow: $shadow-dark;
-  }
+  // &:focus-within {
+  //   transform: translateY(-0.5rem);
+  //   box-shadow: $shadow-dark;
+  // }
   &__icon {
     display: inline-block;
     height: 1rem;
@@ -42,6 +43,30 @@
       color: var(--font-color);
       opacity: 0.8;
     }
+  }
+
+  &__list {
+    position: absolute;
+    top: 5rem;
+    list-style: none;
+    align-self: flex-end;
+  }
+
+  &__item {
+    background-color: var(--color-primary);
+    border-bottom: 1px solid var(--font-color);
+    font-weight: 600;
+    border-radius: 5px;
+    box-shadow: $shadow inset;
+    padding: 1rem 16.75rem;
+  }
+
+  &__button {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: inherit;
   }
 }
 .filter {
@@ -285,4 +310,9 @@
   &__message {
     margin: auto 0;
   }
+}
+
+.hl {
+  background-color: var(--font-color);
+  color: var(--color-primary);
 }

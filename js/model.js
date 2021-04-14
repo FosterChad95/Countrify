@@ -18,7 +18,6 @@ export const loadCountry = async function () {
     if (!data.ok) throw new Error("Something went wrong please try again!");
 
     const res = await data.json();
-    console.log(res);
     state.countries = res;
     state.search.results = res;
   } catch (err) {
