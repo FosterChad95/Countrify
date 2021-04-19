@@ -8,6 +8,7 @@ class SearchView extends View {
   _blur() {
     this._searchInput.blur();
   }
+
   addHandlerDropdown(handler) {
     ["change", "keyup"].forEach((e) =>
       this._searchInput.addEventListener(e, handler)
@@ -51,6 +52,8 @@ class SearchView extends View {
   clearSearch() {
     this._parentElement.querySelector(".search__input").value = "";
     this._btn.innerHTML = "";
+    this._list.innerHTML = "";
+    this._blur();
   }
 
   addHandlerSearch(handler) {
