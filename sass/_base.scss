@@ -28,6 +28,11 @@ $light-mode-background: hsl(0, 0%, 98%);
       @content;
     } //900px
   }
+  @if $breakpoint == desktop {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
 }
 
 //Fonts

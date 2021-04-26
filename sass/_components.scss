@@ -202,6 +202,9 @@
 .detail {
   width: 95vw;
   height: 100vh;
+  @include respond(tab-port) {
+    height: auto;
+  }
   &__button {
     padding: 1rem 4rem;
     border-radius: 1rem;
@@ -213,6 +216,12 @@
     color: var(--font-color);
     cursor: pointer;
     transition: transform 0.3s;
+    @include respond(phone) {
+      position: absolute;
+      transform: translate(50%);
+      width: 45%;
+    }
+
     &:hover {
       transform: translateY(-0.2rem);
     }
@@ -232,6 +241,9 @@
     grid-template-rows: min-content min-content;
     grid-gap: 10rem;
     margin-top: 7rem;
+    @include respond(tab-port) {
+      grid-gap: 1rem;
+    }
   }
 
   &__image {
@@ -243,6 +255,13 @@
       max-width: 60rem;
       width: auto;
       height: auto;
+      @include respond(desktop) {
+        max-height: 25rem;
+        max-width: 50rem;
+      }
+      @include respond(tab-port) {
+        display: none;
+      }
     }
   }
 
@@ -254,6 +273,15 @@
     grid-template-columns: 1fr 1fr;
     color: var(--font-color);
     overflow: hidden;
+    @include respond(tab-port) {
+      grid-column: 1/-1;
+    }
+    @include respond(phone) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
     &--header {
       margin-bottom: 2rem;
       grid-row: 1/2;
@@ -274,6 +302,9 @@
 
       &:last-child {
         margin-right: 5rem;
+        @include respond(phone) {
+          margin-right: 0;
+        }
       }
     }
     &--border {
@@ -285,6 +316,21 @@
       grid-auto-flow: row;
       grid-row-gap: 2rem;
       align-items: center;
+      @include respond(phone) {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3rem;
+      }
+
+      @include respond(desktop) {
+        grid-template-columns: max-content repeat(2, 5rem);
+      }
+
+      & #strong {
+        @include respond(phone) {
+          grid-row: 1/2;
+        }
+      }
 
       & span ~ span {
         border: 1px solid gray;
@@ -292,6 +338,12 @@
         padding: 0.5rem 0;
         background-color: var(--color-primary);
         margin-right: 0.5rem;
+        @include respond(desktop) {
+          grid-column: 2/-1;
+        }
+        @include respond(tab-port) {
+          width: 10rem;
+        }
       }
     }
   }
