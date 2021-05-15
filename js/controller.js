@@ -36,7 +36,6 @@ const controlList = function (el) {
   if (!el) return;
   const dataid = el.dataset.id;
   const data = model.state.countries.find((el) => el.name === dataid);
-
   detailView._renderDetail(data);
   detailView._bordersDetail(data);
   detailView._hideMain();
